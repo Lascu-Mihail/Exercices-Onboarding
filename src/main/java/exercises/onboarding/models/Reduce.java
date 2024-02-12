@@ -16,6 +16,4 @@ public class Reduce {
                 .reduce((student1, student2) -> student1.getAge() >= student2.getAge() ? student1 : student2);
 
     }
-
-
 }

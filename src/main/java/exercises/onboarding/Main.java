@@ -8,10 +8,7 @@ import exercises.onboarding.models.Filter;
 import exercises.onboarding.models.Reduce;
 import exercises.onboarding.models.Student;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -53,13 +50,8 @@ public class Main {
         List<Integer> higherNumber = filter.filterAndRemoveNumber(listNum);
         System.out.println("Filter and Remove Number 5: " + higherNumber);
 
-        Optional<Integer> maxNumber = filter.findMaxNumber(listNum);
-
-        if (maxNumber.isPresent()) {
-            System.out.println("The higher number is "  + maxNumber.map(Objects::toString).orElse("none"));
-        }else {
-            System.out.println("There is no max number");
-        }
+        List<Integer> maxNumber = Collections.singletonList(Filter.findMaxNumber(listNum));
+        System.out.println("the max number is" + maxNumber);
 
 
         ///For Students
@@ -111,8 +103,8 @@ public class Main {
 
         List<String> label = gradeMapping.gradesWithLabel(graduatesList);
 
-        String labaeledGrades = String.join(" , ", label);
-        System.out.println("Grades with Labels: " + labaeledGrades);
+        String labeledGrades = String.join(" , ", label);
+        System.out.println("Grades with Labels: " + labeledGrades);
 
         List<String> mapAgeToCategories = gradeMapping.mapToAgeCategories(graduatesList);
         System.out.println("Age categories of graduates: " + mapAgeToCategories);
