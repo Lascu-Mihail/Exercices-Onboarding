@@ -1,6 +1,6 @@
 package exercises.onboarding.models;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Filter {
@@ -29,14 +29,13 @@ public class Filter {
         ).collect(Collectors.toList());
     }
 
-    public Optional<Integer>findMaxNumber (List<Integer> number ){
-        return number.stream().filter(
-                n-> n > 0 ).max(Integer::compareTo);
+    public static Integer findMaxNumber (List<Integer> number ){
+        return number.stream().max(Integer::compareTo).orElseThrow();
     }
 
     public List<Student> filterStudent(List<Student> students) {
         return students.stream().filter(
-                student -> student.getAge() > 20 && student.isInternational())
+                        student -> student.getAge() > 20 && student.isInternational())
                 .collect(Collectors.toList());
 
     }
@@ -77,7 +76,7 @@ public class Filter {
    public List<Student> filterByDisciplineIfItHas (List<Student> students) {
         return students.stream().filter(
                 student -> !student.getDiscipline().contains("History")
-        ).distinct().limit(4).collect(Collectors.toList());
+        ).distinct().limit(2).collect(Collectors.toList());
     }
 
 }
