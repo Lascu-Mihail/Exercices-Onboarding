@@ -37,7 +37,6 @@ public class Filter {
         return students.stream().filter(
                         student -> student.getAge() > 20 && student.isInternational())
                 .collect(Collectors.toList());
-
     }
 
     public List<Student> filterStudentAge(List<Student> students) {
